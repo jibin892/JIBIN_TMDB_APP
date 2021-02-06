@@ -36,10 +36,9 @@
                 android:layout_gravity="center_horizontal"
                 android:gravity="center_horizontal"
                 android:paddingHorizontal="4dp"
-                android:src="@drawable/loading"
                 bind:profileUrl="@{`https://image.tmdb.org/t/p/w500`+ cast.profilePath}"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:scaleType="fitXY"
+                android:scaleType="fitCenter"
                 tools:ignore="contentDescription" />
 
             <TextView

@@ -87,10 +87,15 @@ public class FavouriteMovies extends Fragment {
         RecyclerView recyclerView = fragmentFavouriteMoviesBinding.rvF4;
         MoviesAdapter moviesAdapter = new MoviesAdapter(context, movie);
         if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-            recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
+            recyclerView.setLayoutManager(new GridLayoutManager(context, 3));
         } else {
             recyclerView.setLayoutManager((new GridLayoutManager(context, 4)));
         }
+
+//        GridLayoutManager mLayoutManager1 = new GridLayoutManager(getActivity(),3);
+//
+//
+//        recyclerView.setLayoutManager(mLayoutManager1);
         recyclerView.setAdapter(moviesAdapter);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         moviesAdapter.notifyDataSetChanged();

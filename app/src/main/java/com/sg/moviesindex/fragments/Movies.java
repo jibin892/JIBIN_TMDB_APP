@@ -136,7 +136,7 @@ public class Movies extends Fragment {
                 swipeRefreshLayout.setRefreshing(false);
             }
         });
-        gridLayoutManager = new GridLayoutManager(getContext(), 2);
+        gridLayoutManager = new GridLayoutManager(getContext(), 3);
         gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {

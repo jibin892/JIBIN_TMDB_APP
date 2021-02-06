@@ -40,7 +40,6 @@ public class MoviesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     public static void loadImage(ImageView view, String url) {
         Glide.with(view.getContext())
                 .load(url)
-                .placeholder(R.drawable.loading)
                 .into(view);
     }
 

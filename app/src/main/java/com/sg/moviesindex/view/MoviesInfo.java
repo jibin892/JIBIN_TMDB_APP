@@ -1,3 +1,4 @@
+
 package com.sg.moviesindex.view;
 
 import android.Manifest;
@@ -8,10 +9,13 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -90,6 +94,10 @@ public class MoviesInfo extends AppCompatActivity implements TorrentFetcherServi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//            Window w = getWindow(); // in Activity's onCreate() for instance
+//            w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+//        }
         setContentView(R.layout.activity_movies_info);
         Toolbar toolbar = findViewById(R.id.toolbar);
         View parentLayout = findViewById(android.R.id.content);
@@ -115,7 +123,7 @@ public class MoviesInfo extends AppCompatActivity implements TorrentFetcherServi
             movie = i.getParcelableExtra("movie");
             bool = i.getBooleanExtra("boolean", false);
             if (MainActivity.imageup <= 2) {
-                Snackbar.make(parentLayout, "Swipe Image Up For More Information!", Snackbar.LENGTH_SHORT).show();
+              //  Snackbar.make(parentLayout, "Swipe Image Up For More Information!", Snackbar.LENGTH_SHORT).show();
                 MainActivity.imageup++;
             }
             if (mainViewModel.getMovie(movie.getTitle()) != null) {

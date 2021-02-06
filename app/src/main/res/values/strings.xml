@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">Movies Index</string>
+    <string name="app_name">JIBIN_MDB</string>
     <string name="title_activity_movies_info">Movies Index</string>
     <string name="favourite_movies">Favourite Movies</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="title_activity_main">Movies Index</string>
+    <string name="title_activity_main">M</string>
     <string name="popular_movies">Popular Movies</string>
     <string name="made_with_love">Made with</string>
     <string name="in_india">in</string>

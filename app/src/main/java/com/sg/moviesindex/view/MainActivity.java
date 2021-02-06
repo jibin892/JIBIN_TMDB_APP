@@ -1,5 +1,6 @@
 package com.sg.moviesindex.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -26,6 +27,7 @@ import com.sg.moviesindex.model.tmdb.Movie;
 import com.sg.moviesindex.service.FetchFirstTimeDataService;
 import com.sg.moviesindex.service.FetchGenresListService;
 import com.sg.moviesindex.utils.SearchUtil;
+import com.sg.moviesindex.utils.Tools;
 
 import java.util.ArrayList;
 
@@ -61,6 +63,8 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Tools.setSystemBarColorInt(this, getResources().getColor(R.color.cblue1));
+
         fragmentManager = getSupportFragmentManager();
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         progressBar = findViewById(R.id.progressBar);

@@ -1,16 +1,9 @@
 apply plugin: 'com.android.application'
 
-
-def keystoreProperties = new Properties()
-def keystorePropertiesFile = rootProject.file('key.properties')
-if (keystorePropertiesFile.exists()) {
-    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-}
-
 android {
     compileSdkVersion 30
     defaultConfig {
-        applicationId "com.sg.moviesindex"
+        applicationId "com.example.jibin_mdv_application"
         minSdkVersion 21
         compileOptions {
             sourceCompatibility JavaVersion.VERSION_1_8
@@ -29,24 +22,18 @@ android {
     sourceSets {
         androidTest.assets.srcDirs += files("$projectDir/schemas".toString())
     }
-    signingConfigs {
-        release {
-            keyAlias keystoreProperties['keyAlias']
-            keyPassword keystoreProperties['keyPassword']
-            storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
-            storePassword keystoreProperties['storePassword']
-        }
-    }
+
     buildTypes {
         debug {
-            buildConfigField "String", "ApiKey", TMDB_API_KEY
+            buildConfigField("String", "ApiKey", "\"${project.hasProperty("065201f20ca58e5e6c242e02f9f84a0d") ? TMDB_API_KEY : System.getenv("065201f20ca58e5e6c242e02f9f84a0d")}\"")
+
+            //  buildConfigField "String", "ApiKey", TMDB_API_KEY
         }
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro -keep class android.support.v7.widget.SearchView { *; }\n' +
-                    ''
-            buildConfigField "String", "ApiKey", TMDB_API_KEY
-            signingConfig signingConfigs.release
+                    buildConfigField("String", "ApiKey", "\"${project.hasProperty("065201f20ca58e5e6c242e02f9f84a0d") ? TMDB_API_KEY : System.getenv("065201f20ca58e5e6c242e02f9f84a0d")}\"")
+            ''
         }
     }
     buildFeatures {
